@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Gestão de Ocorrências</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🛡️ Sistema de Gestão de Ocorrências</h1>
+        
+        <button onclick="window.location.href='relatorio.html'">
+    📄 Gerar relatório
+</button>
+        <div class="usuario-logado">
+    <span id="nomeUsuario"></span>
+
+    <button onclick="sairSistema()">
+        Sair
+    </button>
+</div>
+        <p>Controle e gerenciamento de ocorrências de segurança</p>
+    </header>
+
+    <main>
+
+        <section class="dashboard">
+
+            <div class="card">
+                <h2>Total</h2>
+                <span id="total">0</span>
+            </div>
+
+            <div class="card">
+                <h2>Abertas</h2>
+                <span id="abertas">0</span>
+            </div>
+
+            <div class="card">
+                <h2>Em análise</h2>
+                <span id="analise">0</span>
+            </div>
+
+            <div class="card">
+                <h2>Resolvidas</h2>
+                <span id="resolvidas">0</span>
+            </div>
+
+               </section>
+
+        <section class="indicador-resolucao">
+            <h2>📈 Desempenho</h2>
+
+            <p>
+                Percentual de ocorrências resolvidas:
+                <strong id="percentualResolvidas">0%</strong>
+            </p>
+        </section>
+
+        <section class="grafico-container">
+
+    <h2>📊 Ocorrências por status</h2>
+
+    <div class="grafico">
+
+        <div class="barra">
+            <span class="barra-label">Abertas</span>
+            <div class="barra-fundo">
+                <div id="barraAbertas" class="barra-preenchida"></div>
+            </div>
+            <strong id="numeroAbertas">0</strong>
+        </div>
+
+        <div class="barra">
+            <span class="barra-label">Em análise</span>
+            <div class="barra-fundo">
+                <div id="barraAnalise" class="barra-preenchida"></div>
+            </div>
+            <strong id="numeroAnalise">0</strong>
+        </div>
+
+        <div class="barra">
+            <span class="barra-label">Resolvidas</span>
+            <div class="barra-fundo">
+                <div id="barraResolvidas" class="barra-preenchida"></div>
+            </div>
+            <strong id="numeroResolvidas">0</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+        <section class="formulario">
+
+            <h2>Registrar nova ocorrência</h2>
+
+            <form id="formOcorrencia">
+
+                <label for="tipo">Tipo da ocorrência</label>
+
+                <input
+                    type="text"
+                    id="tipo"
+                    placeholder="Ex.: Furto"
+                    required
+                >
+
+
+                <label for="local">Local</label>
+
+                <input
+                    type="text"
+                    id="local"
+                    placeholder="Ex.: Loja 01"
+                    required
+                >
+
+
+                <label for="descricao">Descrição</label>
+
+                <textarea
+                    id="descricao"
+                    placeholder="Descreva o ocorrido"
+                    required
+                ></textarea>
+
+<label for="responsavel">Responsável</label>
+
+<input
+    type="text"
+    id="responsavel"
+    placeholder="Nome do responsável pela ocorrência"
+>
+                <label for="status">Status</label>
+
+                <select id="status">
+
+                    <option value="Aberta">
+                        Aberta
+                    </option>
+
+                    <option value="Em análise">
+                        Em análise
+                    </option>
+
+                    <option value="Resolvida">
+                        Resolvida
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Registrar ocorrência
+                </button>
+
+            </form>
+<div class="pesquisa">
+    <label for="pesquisa">🔍 Pesquisar ocorrência</label>
+
+    <input
+        type="text"
+        id="pesquisa"
+        placeholder="Pesquisar por tipo, local, descrição ou responsável"
+    >
+</div>
+<div class="filtro">
+    <label for="filtroStatus">Filtrar por status</label>
+
+    <select id="filtroStatus">
+        <option value="">Todos</option>
+        <option value="Aberta">Aberta</option>
+        <option value="Em análise">Em análise</option>
+        <option value="Resolvida">Resolvida</option>
+    </select>
+</div>
+        </section>
+
+
+        <section class="lista">
+
+            <h2>Ocorrências registradas</h2>
+
+            <div id="listaOcorrencias">
+                Carregando ocorrências...
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

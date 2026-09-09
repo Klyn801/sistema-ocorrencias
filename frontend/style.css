@@ -1,0 +1,445 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #d1d5db;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.dashboard {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+.card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+
+}
+
+.card h2 {
+
+    font-size: 18px;
+
+    margin-bottom: 12px;
+
+}
+
+.card span {
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+}
+.formulario,
+.lista {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.formulario h2,
+.lista h2 {
+    margin-bottom: 20px;
+}
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+label {
+
+    font-weight: bold;
+
+    margin-top: 8px;
+
+    color: #1f2937;
+
+}
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    box-sizing: border-box;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+
+}
+
+input::placeholder,
+textarea::placeholder {
+
+    color: #9ca3af;
+
+}
+
+textarea {
+
+    min-height: 130px;
+
+    resize: vertical;
+
+}
+button {
+    margin-top: 10px;
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.ocorrencia {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.ocorrencia h3 {
+    margin-bottom: 10px;
+}
+
+.ocorrencia p {
+    margin: 6px 0;
+}
+
+@media (max-width: 800px) {
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        width: 94%;
+    }
+}
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.dashboard .card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+/* =========================
+   CORES DOS INDICADORES
+========================= */
+
+#total {
+    color: #0d6efd;
+}
+
+#abertas {
+    color: #dc3545;
+}
+
+#analise {
+    color: #ffc107;
+}
+
+#resolvidas {
+    color: #198754;
+}
+
+/* Efeito ao passar o mouse */
+
+.dashboard .card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Título do card */
+
+.dashboard .card h2 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+}
+
+
+/* Número */
+
+.dashboard .card span {
+    display: block;
+
+    font-size: 36px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   GRÁFICO
+========================= */
+
+.grafico-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.grafico-container h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.barra {
+    display: grid;
+    grid-template-columns: 110px 1fr 40px;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.barra-label {
+    font-weight: bold;
+}
+
+.barra-fundo {
+    height: 25px;
+    background: #e5e5e5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.barra-preenchida {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#barraAbertas {
+    background: #dc3545;
+}
+
+#barraAnalise {
+    background: #ffc107;
+}
+
+#barraResolvidas {
+    background: #198754;
+}
+
+@media (max-width: 600px) {
+
+    .barra {
+        grid-template-columns: 90px 1fr 30px;
+        gap: 8px;
+    }
+
+}
+/* =========================
+   TELA DE LOGIN
+========================= */
+
+.login-container {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: #111827;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+
+    text-align: center;
+}
+
+.login-card h1 {
+    margin-bottom: 10px;
+
+    color: #111827;
+
+    font-size: 28px;
+}
+
+.login-card h2 {
+    margin-bottom: 25px;
+
+    color: #4b5563;
+
+    font-size: 20px;
+}
+
+.login-card form {
+    text-align: left;
+}
+
+.login-card button {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    font-size: 16px;
+}
+
+.login-card button:hover {
+    background: #1d4ed8;
+}
+
+#mensagemLogin {
+    margin-top: 15px;
+
+    font-weight: bold;
+}

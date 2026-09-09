@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Relatório de Ocorrências</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f5f6f8;
+            color: #222;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .cabecalho {
+            text-align: center;
+            border-bottom: 2px solid #222;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .cabecalho h1 {
+            margin-bottom: 8px;
+        }
+
+        .data {
+            color: #666;
+        }
+
+        .resumo {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .card p {
+            margin-bottom: 0;
+            color: #666;
+        }
+
+        .botoes {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #eee;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        @media print {
+
+            body {
+                background: white;
+                margin: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .botoes {
+                display: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            .resumo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+       <div class="botoes">
+
+    <button onclick="window.print()">
+        📄 Salvar PDF
+    </button>
+
+    <button onclick="window.location.href='index.html'">
+        ← Voltar ao sistema
+    </button>
+
+</div>
+
+        <div class="cabecalho">
+
+            <h1>🛡️ Sistema de Gestão de Ocorrências</h1>
+
+            <h2>Relatório de Ocorrências</h2>
+
+            <div class="data">
+
+    <p>
+        <strong>Data do relatório:</strong>
+        <span id="dataRelatorio"></span>
+    </p>
+
+    <p>
+        <strong>Gerado por:</strong>
+        <span id="usuarioRelatorio"></span>
+    </p>
+
+    <p>
+        <strong>Perfil:</strong>
+        <span id="perfilRelatorio"></span>
+    </p>
+
+</div>
+
+        </div>
+
+        <div class="resumo">
+
+            <div class="card">
+                <h2 id="totalRelatorio">0</h2>
+                <p>Total</p>
+            </div>
+
+            <div class="card">
+                <h2 id="abertasRelatorio">0</h2>
+                <p>Abertas</p>
+            </div>
+
+            <div class="card">
+                <h2 id="analiseRelatorio">0</h2>
+                <p>Em análise</p>
+            </div>
+
+            <div class="card">
+                <h2 id="resolvidasRelatorio">0</h2>
+                <p>Resolvidas</p>
+            </div>
+
+        </div>
+<div style="margin-bottom: 20px;">
+
+    <label for="filtroStatusRelatorio">
+        <strong>Status:</strong>
+    </label>
+
+    <select id="filtroStatusRelatorio">
+        <option value="">Todos</option>
+        <option value="Aberta">Aberta</option>
+        <option value="Em análise">Em análise</option>
+        <option value="Resolvida">Resolvida</option>
+    </select>
+
+    &nbsp;&nbsp;
+
+    <label for="dataInicial">
+        <strong>Data inicial:</strong>
+    </label>
+
+    <input type="date" id="dataInicial">
+
+    <button onclick="limparFiltros()">
+    🔄 Limpar filtros
+</button>
+
+    &nbsp;&nbsp;
+
+    <label for="dataFinal">
+        <strong>Data final:</strong>
+    </label>
+
+    <input type="date" id="dataFinal">
+
+</div>
+        <div id="listaRelatorio">
+            Carregando ocorrências...
+        </div>
+        <div style="
+    margin-top: 50px;
+    text-align: center;
+">
+
+    <p>________________________________________</p>
+
+    <p>
+        <strong id="assinaturaUsuario"></strong>
+    </p>
+
+    <p>
+        Responsável pela emissão do relatório
+    </p>
+
+</div>
+
+    </div>
+
+    <script src="relatorio.js"></script>
+
+</body>
+
+</html>
