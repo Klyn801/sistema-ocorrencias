@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000";
+const API_URL = "https://sistema-ocorrencias-api-7xip.onrender.com";
 
 const listaRelatorio =
     document.getElementById("listaRelatorio");
